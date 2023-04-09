@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/product", (req, res) => {
-  res.json({ message: "success", status: 200 });
+  res.json({ message: "success", status: 200, secret: req.shhhh_secret });
 });
 router.get("/product/:id", (req, res) => {
   res.send({ message: "success", status: 200 });
