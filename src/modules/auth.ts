@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const comparePasswords = (password, hash) => {
-  bcrypt.compare(password, hash)
+  return bcrypt.compare(password, hash)
 }
 
 export const hashPassword = (password) => {
