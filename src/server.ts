@@ -11,10 +11,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.json({ message: 'success' })
-});
-
 
 app.use("/api", protect, router);
 

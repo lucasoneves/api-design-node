@@ -1,19 +1,16 @@
 import { Router } from "express";
 import { body, validationResult } from 'express-validator';
+import { createProduct, getProducts, updateProduct } from "./handlers/product";
+import { handleInputErrors } from "./modules/middleware";
 
 const router = Router();
 
-router.get("/product", (req, res) => {
-  res.json({ message: "success" });
-});
+router.get("/product", getProducts);
+router.post("/product", handleInputErrors, createProduct);
 router.get("/product/:id", (req, res) => {
   res.send({ message: "success", status: 200 });
 })
-router.put("/product/:id", body('name'), (req, res) => {
-  const errors = validationResult(req);
-
-});
-router.post("/product", (req, res) => { });
+router.put("/product/:id", body('name'), updateProduct);
 router.delete("product/:id", (req, res) => { });
 
 /** Update **/
